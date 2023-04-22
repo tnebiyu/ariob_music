@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
-import '../model/songs_model.dart';
-
 class SongCard extends StatelessWidget {
-  final String? trackName;
+  final String? songName;
   final String? artistName;
-  final String? backgroundImage;
-  final Function addFavourite;
-  final Songs songs;
-  const SongCard({super.key, this.trackName, this.artistName, this.backgroundImage, required this.songs, required this.addFavourite} );
+  final String? songImage;
+
+
+  const SongCard({super.key, required this.songName, required this.artistName, required this.songImage, } );
 
   @override
   Widget build(BuildContext context) {
 
-    return Container(
+    return SizedBox(
         width:119,
         height: 132,
         child: Column(
@@ -24,26 +22,21 @@ class SongCard extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                  image: NetworkImage(backgroundImage!),
+                  image: NetworkImage(songImage!),
                   fit: BoxFit.cover,
                 ),
               ),
             ),
             ListTile(
-              title: Text(trackName!,style: TextStyle(
+              title: Text(songName!,style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 10,
               ),),
-              subtitle: Text(artistName!, style: TextStyle(
+              subtitle: Text(artistName!, style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 10,
               ),),
-              trailing: IconButton(
-                  onPressed: () {
-                    addFavourite();
-                  },
-                  icon: Icon(Icons.favorite_border, color: Colors.white,)
-              ),),
+            ),
           ],
         )
 

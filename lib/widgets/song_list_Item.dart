@@ -2,7 +2,7 @@ import 'package:ariob_music/widgets/song_card.dart';
 import 'package:flutter/material.dart';
 
 Widget listItem(data){
-  return Container(
+  return SizedBox(
       height: 200,
       child: Row(
         children: [
@@ -12,10 +12,11 @@ Widget listItem(data){
               itemCount: data.length,
               itemBuilder: (context, index) {
 
-                return SongCard(songs: data[index].trackName,
-                    artistName: data[index].artistName,
-                    backgroundImage: data[index].trackCoverImage,
-                    addFavourite: () {}
+                return SongCard(
+                    artistName: data[index]!.artistName!,
+                    songImage: data[index]!.songImage!,
+                  songName: data[index]!.songName,
+
                     );
               }
 

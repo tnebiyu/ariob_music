@@ -8,7 +8,7 @@ class Songs {
   String? songLyrics;
   String? songurl;
   String? songImage;
-  Null? songGenre;
+  Null songGenre;
 
   Songs(
       {this.id,
@@ -36,17 +36,17 @@ class Songs {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['songName'] = this.songName;
-    data['artistName'] = this.artistName;
-    data['albumName'] = this.albumName;
-    data['songLength'] = this.songLength;
-    data['songReleaseDate'] = this.songReleaseDate;
-    data['songLyrics'] = this.songLyrics;
-    data['songurl'] = this.songurl;
-    data['songImage'] = this.songImage;
-    data['songGenre'] = this.songGenre;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['songName'] = songName;
+    data['artistName'] = artistName;
+    data['albumName'] = albumName;
+    data['songLength'] = songLength;
+    data['songReleaseDate'] = songReleaseDate;
+    data['songLyrics'] = songLyrics;
+    data['songurl'] =songurl;
+    data['songImage'] = songImage;
+    data['songGenre'] = songGenre;
     return data;
   }
 }

@@ -9,7 +9,7 @@ class SongService with ChangeNotifier{
   List<Songs>? _songsList;
   fetchSongs() async{
     try {
-      const url = 'http://10.0.2.2:8080/api/v1/songs';
+      const url = 'http://localhost:8080/api/v1/songs';
 
       var response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
@@ -34,6 +34,7 @@ class SongService with ChangeNotifier{
       await fetchSongs();
       notifyListeners();
     }
+
     notifyListeners();
     return _songsList ?? [];
 
